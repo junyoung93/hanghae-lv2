@@ -25,7 +25,7 @@ public class UserService {
 
     public void signup(SignupRequestDto signupRequestDto) {
         String username = signupRequestDto.getUsername();
-        String password = signupRequestDto.getPassword();
+        String password = passwordEncoder.encode(signupRequestDto.getPassword());
 
         Optional<User> checkUsername = userRepository.findByUsername(username);
         if(checkUsername.isPresent()){
