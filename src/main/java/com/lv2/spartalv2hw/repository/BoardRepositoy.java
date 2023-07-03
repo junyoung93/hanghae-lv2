@@ -1,4 +1,4 @@
-package com.lv2.spartalv2hw.repositoy;
+package com.lv2.spartalv2hw.repository;
 
 
 import com.lv2.spartalv2hw.entity.Board;

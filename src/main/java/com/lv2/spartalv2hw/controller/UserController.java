@@ -38,7 +38,7 @@ public class UserController {
         }
         userService.signup(signupRequestDto);
 
-        return "JSON 변환 오류";
+        return "회원가입 완료!";
     }
 
     @PostMapping("/api/user")

@@ -4,7 +4,7 @@ import com.lv2.spartalv2hw.dto.BoardRequestDto;
 import com.lv2.spartalv2hw.dto.BoardResponseDto;
 import com.lv2.spartalv2hw.entity.Board;
 import com.lv2.spartalv2hw.jwt.JwtUtil;
-import com.lv2.spartalv2hw.repositoy.BoardRepositoy;
+import com.lv2.spartalv2hw.repository.BoardRepositoy;
 import io.jsonwebtoken.Claims;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
