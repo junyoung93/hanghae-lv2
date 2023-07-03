@@ -7,7 +7,7 @@ import lombok.Getter;
 
 @Getter
 @Entity
-public class Board {
+public class Board extends Timestamped{
     @Id
     private Long id;
 
