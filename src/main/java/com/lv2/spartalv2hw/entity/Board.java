@@ -28,4 +28,8 @@ public class Board extends Timestamped{
         this.title= boardRequestDto.getTitle();
         this.username=tokenUsername;
     }
+    public void putBoard(BoardRequestDto boardRequestDto) {
+        this.contents= boardRequestDto.getContents();
+        this.title= boardRequestDto.getTitle();
+    }
 }
