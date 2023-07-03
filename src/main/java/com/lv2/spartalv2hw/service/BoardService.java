@@ -6,7 +6,6 @@ import com.lv2.spartalv2hw.entity.Board;
 import com.lv2.spartalv2hw.jwt.JwtUtil;
 import com.lv2.spartalv2hw.repositoy.BoardRepositoy;
 import io.jsonwebtoken.Claims;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,16 +35,7 @@ public class BoardService {
         return new BoardResponseDto(boardRepositoy.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다.")));
     }
 
-    @Transactional
-    public BoardResponseDto putBoard(Long id, BoardRequestDto boardRequestDto, String tokenValue) {
-        Board board = boardRepositoy.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다."));
-        if (!tokenUsername(tokenValue).equals(board.getUsername())) {
-            throw new IllegalArgumentException("이글은 작성자만 삭제할 수 있습니다.");
-        }
-        board.putBoard(boardRequestDto);
 
-        return new BoardResponseDto(board);
-    }
 
 
     private String tokenUsername(String tokenValue){
@@ -59,5 +49,4 @@ public class BoardService {
         Claims claims = jwtUtil.getUserInfoFromToken(token);
         return claims.getSubject();
     }
-
 }
