@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/board")
+@RequestMapping("/api/boards")
 public class BoardRestController {
 
     private final BoardService boardService;
@@ -28,5 +28,11 @@ public class BoardRestController {
     public BoardResponseDto createBoard(@RequestBody BoardRequestDto boardRequestDto, @CookieValue("Authorization")String tokenValue){
         return boardService.createBoard(boardRequestDto,tokenValue);
     }
+
+    @GetMapping("/{id}")
+    public BoardResponseDto getBoard(@PathVariable Long id){
+        return boardService.getBoard(id);
+    }
+
 
 }

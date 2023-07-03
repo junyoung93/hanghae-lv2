@@ -31,6 +31,12 @@ public class BoardService {
         return new BoardResponseDto(boardRepositoy.save(board));
     }
 
+    public BoardResponseDto getBoard(Long id) {
+        return new BoardResponseDto(boardRepositoy.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 게시글이 없습니다.")));
+    }
+
+
+
 
     private String tokenUsername(String tokenValue){
         String token = jwtUtil.substringToken(tokenValue);
