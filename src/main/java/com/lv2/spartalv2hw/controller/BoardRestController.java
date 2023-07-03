@@ -34,5 +34,8 @@ public class BoardRestController {
         return boardService.getBoard(id);
     }
 
-
+    @PutMapping("/{id}")
+    public BoardResponseDto putBoard(@PathVariable Long id,@RequestBody BoardRequestDto boardRequestDto, @CookieValue("Authorization")String tokenValue){
+        return boardService.putBoard(id,boardRequestDto,tokenValue);
+    }
 }
